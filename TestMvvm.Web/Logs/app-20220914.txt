@@ -1,0 +1,82 @@
+2022-09-14T23:56:39.3615953+05:30  [INF] User profile is available. Using '"C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2022-09-14T23:56:39.8417048+05:30  [INF] Now listening on: "https://localhost:7198" (d826f4b8)
+2022-09-14T23:56:39.8440941+05:30  [INF] Now listening on: "http://localhost:5198" (d826f4b8)
+2022-09-14T23:56:39.8591330+05:30  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-09-14T23:56:39.8614978+05:30  [INF] Hosting environment: "Development" (c3307c92)
+2022-09-14T23:56:39.8642549+05:30  [INF] Content root path: "C:\Kajanthan\Personal\Russada\TestMvvm\TestMvvm.Web\" (b5d60022)
+2022-09-14T23:56:41.4952505+05:30 0HMKMFQL9R2VU:00000001 [INF] Request starting HTTP/2 GET https://localhost:7198/ - - (ca22a1cb)
+2022-09-14T23:56:41.6543479+05:30 0HMKMFQL9R2VU:00000001 [INF] Executing endpoint '"TestMvvm.Web.Controllers.HomeController.Index (TestMvvm.Web)"' (500cc934)
+2022-09-14T23:56:41.7230873+05:30 0HMKMFQL9R2VU:00000001 [INF] Route matched with "{action = \"Index\", controller = \"Home\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "TestMvvm.Web.Controllers.HomeController" ("TestMvvm.Web"). (122b2fdf)
+2022-09-14T23:56:41.7469938+05:30 0HMKMFQL9R2VU:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2022-09-14T23:56:42.0082657+05:30 0HMKMFQL9R2VU:00000001 [INF] Executed ViewResult - view "Index" executed in 259.1599ms. (f66409e9)
+2022-09-14T23:56:42.0098672+05:30 0HMKMFQL9R2VU:00000001 [INF] Executed action "TestMvvm.Web.Controllers.HomeController.Index (TestMvvm.Web)" in 285.5902ms (afa2e885)
+2022-09-14T23:56:42.0099522+05:30 0HMKMFQL9R2VU:00000001 [INF] Executed endpoint '"TestMvvm.Web.Controllers.HomeController.Index (TestMvvm.Web)"' (99874f2b)
+2022-09-14T23:56:42.0297057+05:30 0HMKMFQL9R2VU:00000001 [INF] Request finished HTTP/2 GET https://localhost:7198/ - - - 200 - text/html;+charset=utf-8 545.1450ms (791a596a)
+2022-09-14T23:56:42.2341557+05:30 0HMKMFQL9R2VU:00000003 [INF] Request starting HTTP/2 GET https://localhost:7198/lib/bootstrap/dist/css/bootstrap.min.css - - (ca22a1cb)
+2022-09-14T23:56:42.2653051+05:30 0HMKMFQL9R2VU:00000005 [INF] Request starting HTTP/2 GET https://localhost:7198/js/index_ko.js?v=Ygv-kn_foKmLVubNpR-yU4i8JvTTGKuvnKz_oSc0YTk - - (ca22a1cb)
+2022-09-14T23:56:42.2658537+05:30 0HMKMFQL9R2VU:00000007 [INF] Request starting HTTP/2 GET https://localhost:7198/_framework/aspnetcore-browser-refresh.js - - (ca22a1cb)
+2022-09-14T23:56:42.2749324+05:30 0HMKMFQL9R2VU:00000007 [INF] Request finished HTTP/2 GET https://localhost:7198/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 9.0463ms (791a596a)
+2022-09-14T23:56:42.2750727+05:30 0HMKMFQL9R2VU:00000009 [INF] Request starting HTTP/2 GET https://localhost:7198/css/site.css?v=AKvNjO3dCPPS0eSU1Ez8T2wI280i08yGycV9ndytL-c - - (ca22a1cb)
+2022-09-14T23:56:42.2993081+05:30 0HMKMFQL9R2VU:00000003 [INF] The file "/lib/bootstrap/dist/css/bootstrap.min.css" was not modified (f1f8d725)
+2022-09-14T23:56:42.2993165+05:30 0HMKMFQL9R2VU:00000009 [INF] The file "/css/site.css" was not modified (f1f8d725)
+2022-09-14T23:56:42.2996671+05:30 0HMKMFQL9R2VU:00000003 [INF] Request finished HTTP/2 GET https://localhost:7198/lib/bootstrap/dist/css/bootstrap.min.css - - - 304 - text/css 65.5175ms (791a596a)
+2022-09-14T23:56:42.2996994+05:30 0HMKMFQL9R2VU:00000009 [INF] Request finished HTTP/2 GET https://localhost:7198/css/site.css?v=AKvNjO3dCPPS0eSU1Ez8T2wI280i08yGycV9ndytL-c - - - 304 - text/css 24.6017ms (791a596a)
+2022-09-14T23:56:42.2997586+05:30 0HMKMFQL9R2VU:0000000B [INF] Request starting HTTP/2 GET https://localhost:7198/TestMvvm.Web.styles.css?v=ikTBnDteAqZP9R75eUfPlkrXBgvR5TK2Rj7plCO3XvY - - (ca22a1cb)
+2022-09-14T23:56:42.2997783+05:30 0HMKMFQL9R2VU:0000000D [INF] Request starting HTTP/2 GET https://localhost:7198/lib/jquery/dist/jquery.min.js - - (ca22a1cb)
+2022-09-14T23:56:42.3000309+05:30 0HMKMFQL9R2VU:0000000D [INF] The file "/lib/jquery/dist/jquery.min.js" was not modified (f1f8d725)
+2022-09-14T23:56:42.3000311+05:30 0HMKMFQL9R2VU:0000000B [INF] The file "/TestMvvm.Web.styles.css" was not modified (f1f8d725)
+2022-09-14T23:56:42.3001556+05:30 0HMKMFQL9R2VU:0000000D [INF] Request finished HTTP/2 GET https://localhost:7198/lib/jquery/dist/jquery.min.js - - - 304 - application/javascript 0.3902ms (791a596a)
+2022-09-14T23:56:42.3001827+05:30 0HMKMFQL9R2VU:0000000B [INF] Request finished HTTP/2 GET https://localhost:7198/TestMvvm.Web.styles.css?v=ikTBnDteAqZP9R75eUfPlkrXBgvR5TK2Rj7plCO3XvY - - - 304 - text/css 0.4231ms (791a596a)
+2022-09-14T23:56:42.3002171+05:30 0HMKMFQL9R2VU:0000000F [INF] Request starting HTTP/2 GET https://localhost:7198/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - (ca22a1cb)
+2022-09-14T23:56:42.3002409+05:30 0HMKMFQL9R2VU:00000011 [INF] Request starting HTTP/2 GET https://localhost:7198/lib/knockout/knockout-latest.min.js - - (ca22a1cb)
+2022-09-14T23:56:42.3003771+05:30 0HMKMFQL9R2VU:00000011 [INF] The file "/lib/knockout/knockout-latest.min.js" was not modified (f1f8d725)
+2022-09-14T23:56:42.3004293+05:30 0HMKMFQL9R2VU:0000000F [INF] The file "/lib/bootstrap/dist/js/bootstrap.bundle.min.js" was not modified (f1f8d725)
+2022-09-14T23:56:42.3004699+05:30 0HMKMFQL9R2VU:00000011 [INF] Request finished HTTP/2 GET https://localhost:7198/lib/knockout/knockout-latest.min.js - - - 304 - application/javascript 0.2129ms (791a596a)
+2022-09-14T23:56:42.3005005+05:30 0HMKMFQL9R2VU:0000000F [INF] Request finished HTTP/2 GET https://localhost:7198/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 304 - application/javascript 0.2767ms (791a596a)
+2022-09-14T23:56:42.3477279+05:30 0HMKMFQL9R2VU:00000005 [INF] Sending file. Request path: '"/js/index_ko.js"'. Physical path: '"C:\Kajanthan\Personal\Russada\TestMvvm\TestMvvm.Web\wwwroot\js\index_ko.js"' (27b0a520)
+2022-09-14T23:56:42.3546277+05:30 0HMKMFQL9R2VU:00000005 [INF] Request finished HTTP/2 GET https://localhost:7198/js/index_ko.js?v=Ygv-kn_foKmLVubNpR-yU4i8JvTTGKuvnKz_oSc0YTk - - - 200 511 application/javascript 89.0364ms (791a596a)
+2022-09-14T23:57:06.0497173+05:30  [INF] Entity Framework Core "6.0.9" initialized '"TestMvvmContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.9"' with options: "None" (d2805559)
+2022-09-14T23:57:23.7579201+05:30  [INF] Entity Framework Core "6.0.9" initialized '"TestMvvmContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.9"' with options: "None" (d2805559)
+2022-09-14T23:57:25.7399271+05:30  [INF] Executed DbCommand ("451"ms) [Parameters=[""], CommandType='Text', CommandTimeout='60']"
+""CREATE DATABASE [TestMvvm];" (0723d8ff)
+2022-09-14T23:57:25.9351290+05:30  [INF] Executed DbCommand ("191"ms) [Parameters=[""], CommandType='Text', CommandTimeout='60']"
+""IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [TestMvvm] SET READ_COMMITTED_SNAPSHOT ON;
+END;" (0723d8ff)
+2022-09-14T23:57:25.9773838+05:30  [INF] Executed DbCommand ("16"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-09-14T23:57:26.2075114+05:30  [INF] Executed DbCommand ("14"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);" (0723d8ff)
+2022-09-14T23:57:26.2112000+05:30  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-09-14T23:57:26.2633738+05:30  [INF] Executed DbCommand ("34"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT OBJECT_ID(N'[__EFMigrationsHistory]');" (0723d8ff)
+2022-09-14T23:57:26.2750156+05:30  [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];" (0723d8ff)
+2022-09-14T23:57:26.3075368+05:30  [INF] Applying migration '"20220914182706_Initial"'. (0e2ac64d)
+2022-09-14T23:57:26.3358102+05:30  [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF SCHEMA_ID(N'Aircrafts') IS NULL EXEC(N'CREATE SCHEMA [Aircrafts];');" (0723d8ff)
+2022-09-14T23:57:26.3408575+05:30  [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [Aircrafts].[Aircraft] (
+    [Id] int NOT NULL IDENTITY,
+    [Make] nvarchar(128) NOT NULL,
+    [Model] nvarchar(128) NOT NULL,
+    [Registration] nvarchar(10) NOT NULL,
+    [Location] nvarchar(255) NOT NULL,
+    [AircraftSeen] datetime2 NOT NULL,
+    [ImageUrl] nvarchar(500) NULL,
+    [CreatedOn] datetime2 NOT NULL,
+    [LastModifiedOn] datetime2 NULL,
+    [IsDeleted] bit NOT NULL,
+    CONSTRAINT [PK_Aircraft] PRIMARY KEY ([Id])
+);" (0723d8ff)
+2022-09-14T23:57:26.3438910+05:30  [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20220914182706_Initial', N'6.0.9');" (0723d8ff)

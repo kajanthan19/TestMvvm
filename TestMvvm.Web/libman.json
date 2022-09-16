@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "knockout@3.5.1",
+      "destination": "wwwroot\\lib\\knockout"
+    },
+    {
+      "library": "knockout-validation@2.0.4",
+      "destination": "wwwroot/lib/knockout-validation/",
+      "files": [
+        "knockout.validation.min.js",
+        "knockout.validation.js"
+      ]
+    },
+    {
+      "library": "bootstrap-icons@1.9.1",
+      "destination": "wwwroot/lib/bootstrap-icons/"
+    },
+    {
+      "library": "bootstrap-datepicker@1.9.0",
+      "destination": "wwwroot/lib/bootstrap-datepicker/"
+    },
+    {
+      "library": "moment.js@2.29.4",
+      "destination": "wwwroot/lib/moment.js/"
+    }
+  ]
+}

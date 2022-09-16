@@ -1,0 +1,48 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.error {
+    font-size: 80%;
+    color: #dc3545;
+}
+
+.input-error {
+    border-color: #dc3545;
+    color: #dc3545;
+}
+
+.float-right-btn {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.image-data {
+    width:200px;
+}
+
+.w-100 {
+    width: 100px !important;
+}
+
+.bootstrap-datetimepicker-widget.dropdown-menu {
+    z-index: 990 !important;
+    width: auto;
+    font-size: 10px;
+}
+}

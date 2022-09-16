@@ -1,0 +1,12 @@
+/TestMvvm.Core/obj
+/TestMvvm.Core/bin
+/TestMvvm.Domain/obj
+/TestMvvm.Domain/bin
+/TestMvvm.Infrastructure/obj
+/TestMvvm.Infrastructure/bin
+/TestMvvm.Migrations/bin
+/TestMvvm.Migrations/obj
+/TestMvvm.Web/obj
+/TestMvvm.Web/bin
+/TestMvvm.Web.UnitTests/obj
+/TestMvvm.Web.UnitTests/bin
