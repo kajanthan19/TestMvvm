@@ -19,12 +19,14 @@
       "destination": "wwwroot/lib/bootstrap-icons/"
     },
     {
-      "library": "bootstrap-datepicker@1.9.0",
-      "destination": "wwwroot/lib/bootstrap-datepicker/"
-    },
-    {
       "library": "moment.js@2.29.4",
       "destination": "wwwroot/lib/moment.js/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "tempusdominus-bootstrap-4@5.39.0",
+      "destination": "wwwroot/lib/tempusdominus-bootstrap-4/"
     }
-  ]
+
+]
 }

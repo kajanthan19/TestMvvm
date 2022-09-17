@@ -40,9 +40,3 @@ body {
     width: 100px !important;
 }
 
-.bootstrap-datetimepicker-widget.dropdown-menu {
-    z-index: 990 !important;
-    width: auto;
-    font-size: 10px;
-}
-}

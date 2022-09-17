@@ -10,15 +10,13 @@
     </div>
 </div>
 
- <div class="content" data-bind="visible: isNew() || isEdit()">
-      <form id="formaircraft" name="formaircraft" data-bind="submit: onSubmit">
+ <div class="content mb-1" data-bind="visible: isNew() || isEdit()">
+      <form id="formaircraft" name="formaircraft" data-bind="submit: onSubmit"  autocomplete="off">
         <div class="row mt-2">
             <div class="col-md-6">
                   <div class="form-group mt-2">
                     <label for="Make"> Make <span class="text-danger">*</span> </label>
                     <input type="text" class="form-control input-small-4" id="Make" data-bind="textInput: Make" placeholder="Enter the Make">
-    @*                <div class="error pt-1" data-bind="validationMessage: Make">
-                    </div>*@
                 </div>
             </div>
 
@@ -27,7 +25,6 @@
                     <label for="Model"> Model <span class="text-danger">*</span> </label>
                     <input type="text" class="form-control input-small-4" id="Model" data-bind="value: Model" placeholder="Enter the Model">
                 </div>
-
             </div>
 
               <div class="col-md-6">
@@ -48,15 +45,8 @@
                 <div class="col-md-6">
                       <div class="form-group mt-2">
                         <label for="AircraftSeen"> AircraftSeen <span class="text-danger">*</span> </label>
-                        <input id="datetimepicker1" type="text" class="form-control" 
-                        data-bind="datepicker: AircraftSeen" />
-
-                      
-                       @* <input class="form-control"
-                                    #datepickerYMD="bsDatepicker"
-                                    bsDatepicker
-                                    [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" [maxDate]="maxDate" [minDate]="minDate"  data-bind='datepicker: AircraftSeen'>
-                  *@      @*<input type="text" class="form-control input-small-4" id="AircraftSeen" data-bind="value: AircraftSeen" placeholder="Enter the Date Time">*@
+                        <input type="text" class="form-control datetimepicker-input" id="datetimepicker1" 
+                        data-toggle="datetimepicker" data-target="#datetimepicker1" data-bind="datepicker: AircraftSeen"/>
                     </div>
                 </div>
 
@@ -66,7 +56,6 @@
                         <br />
                         <input data-bind="event: {change: fileUpload}" type="file" accept="image/*" class="fileChooser"/>
                     </div>
-
                 </div>
 
                 <div class="col-md-12 mt-3 mb-3 float-right-btn">
@@ -79,9 +68,20 @@
     </form>
  </div>
 
-   
+ <div class="row mt-2" data-bind="visible: errorMessage() != null">
+    <div class="col-md-12 text-center">
+        <p class="error" data-bind="text: errorMessage"></p>
+    </div>
+</div>
 
- <div class="row mt-3" data-bind="visible: Aircrafts().length > 0">
+  <div class="form-group row mt-3 mb-3" data-bind="visible: Aircrafts().length > 0">
+    <label for="search" class="col-md-2 col-form-label">Search</label>
+    <div class="col-md-8">
+      <input type="text" class="form-control" id="search" placeholder="Type here..." data-bind="textInput: filter">
+    </div>
+  </div>
+
+ <div class="row mt-2">
     <table class="table table-bordered">
         <thead>
           <tr>
@@ -94,7 +94,7 @@
             <th scope="col" style="width: 120px;">Action</th>
           </tr>
         </thead>
-        <tbody data-bind="foreach: Aircrafts">
+        <tbody data-bind="foreach: filteredAircrafts">
           <tr data-bind="css: {'table-active' : $index() === $root.selectedIndex()}" >
             <td><span data-bind="text: make" /></td>
             <td><span data-bind="text: model" /></td>
@@ -109,7 +109,18 @@
               <button type="button" id="btndelete" class="btn btn-danger" data-bind="click: $root.onDeleteRow.bind($data, $data, $index())"><i class="bi bi-trash3"></i></button>
             </td>
           </tr>
-
+        </tbody>
+        <tbody data-bind="visible: !isLoading() && Aircrafts().length == 0">
+             <tr class="text-center" >
+                <td colspan="7"> No records found </td>
+             </tr>
+        </tbody>
+        <tbody data-bind="visible: isLoading()">
+            <tr class="text-center">
+                <td colspan="7">
+                    <span><i class="fa fa-spinner"></i></span>
+                </td>
+            </tr>
         </tbody>
       </table>
 </div>

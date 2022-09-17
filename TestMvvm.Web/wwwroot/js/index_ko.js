@@ -19,6 +19,9 @@ function AircraftViewModel() {
     self.isNew = ko.observable(false);
     self.disableSubmitButton = ko.observable(false);
     self.selectedIndex = ko.observable(null);
+    self.errorMessage = ko.observable(null);
+    self.isLoading = ko.observable(true);
+    self.filter = ko.observable('');
 
     self.Make = ko.observable().extend({ required: true, maxLength: 128 });
     self.Model = ko.observable().extend({ required: true, maxLength: 128 });
@@ -46,11 +49,13 @@ function AircraftViewModel() {
                 return new AircrafResult(item)
             });
             self.Aircrafts(aircrafts);
-
-            console.log(self.Aircrafts())
+            self.isLoading(false);
+            // console.log(self.Aircrafts())
         },
         error: function (err) {
-            alert(err.status + " - " + err.statusText);
+            self.errorMessage("Exception throw during the get all operation");
+            self.isLoading(false);
+            console.log(err);
         }
     }); 
 
@@ -64,8 +69,8 @@ function AircraftViewModel() {
 
     // On click Form Submit Add or Edit
     self.onSubmit = function () {
-        console.log(moment(self.AircraftSeen()).format("YYYY-MM-DD[T]HH:mm:ss.SSS[Z]"))
         if (self.errors().length === 0) { 
+            self.errorMessage(null);
             self.disableSubmitButton(true);
             var formData = new FormData();
             formData.append("Registration", self.Registration().toString());
@@ -88,12 +93,10 @@ function AircraftViewModel() {
                         self.Aircrafts.push(new AircrafResult(result));
                         self.onReset();
                         self.disableSubmitButton(false);
-                    }, error: function (e) {
+                    }, error: function (err) {
                         self.disableSubmitButton(false);
-                        //$("#result").text(e.responseText);
-                        //console.log("ERROR : ", e);
-                        //$("#btnSubmit").prop("disabled", false);
-
+                        self.errorMessage("Exception throw during the add operation");
+                        console.log(err);
                     }
                 });
             } else { // Edit API call
@@ -115,8 +118,10 @@ function AircraftViewModel() {
                         self.onReset();
                         self.isEdit(false);
                         self.disableSubmitButton(false);
-                    }, error: function (e) {
+                    }, error: function (err) {
                         self.disableSubmitButton(false);
+                        self.errorMessage("Exception throw during the edit operation");
+                        console.log(err);
                     }
                 });
 
@@ -161,6 +166,7 @@ function AircraftViewModel() {
         self.selectedIndex(index);
         var confirm_delete = confirm('Are you sure you want to delete this?');
         if (confirm_delete) {
+            self.errorMessage(null);
             $.ajax({
                 type: "DELETE",
                 url: 'api/aircraft/' + data.id(),
@@ -172,6 +178,7 @@ function AircraftViewModel() {
                 },
                 error: function (err) {
                     self.selectedIndex(null);
+                    self.errorMessage("Exception throw during the delete operation");
                     console.log(err);
                 }
             });
@@ -201,45 +208,55 @@ function AircraftViewModel() {
         self.onReset();
     }
 
+    // Search Filter Function
+    self.filteredAircrafts = ko.computed(function () {
+        var filter = self.filter().toLowerCase();
+        if (!filter) { return self.Aircrafts(); }
+        return self.Aircrafts().filter(function (val) {
+            return val.registration().toLowerCase().indexOf(filter) > -1 || val.model().toLowerCase().indexOf(filter) > -1 || val.make().toLowerCase().indexOf(filter) > -1;
+        });
+    });
+
 };
 
+// Date time picker implementation
 ko.bindingHandlers.datepicker = {
-    init: function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
-        //initialize datepicker with some optional options
+    init: function (element, valueAccessor, allBindingsAccessor) {
+
         var options = {
             format: 'DD/MM/YYYY HH:mm',
-            defaultDate: valueAccessor()()
+            date: ko.utils.unwrapObservable(valueAccessor())
         };
 
         if (allBindingsAccessor() !== undefined) {
-            if (allBindingsAccessor().datepickerOptions !== undefined) {
-                options.format = allBindingsAccessor().datepickerOptions.format !== undefined ? allBindingsAccessor().datepickerOptions.format : options.format;
+            if (allBindingsAccessor().dateTimePickerOptions !== undefined) {
+                options.format = allBindingsAccessor().dateTimePickerOptions.format !== undefined ? allBindingsAccessor().dateTimePickerOptions.format : options.format;
             }
         }
 
-        $(element).datetimepicker(options);
-        var picker = $(element).data('datetimepicker');
+        //var options = allBindingsAccessor().dateTimePickerOptions || {};
+        //var initialValue = ko.utils.unwrapObservable(valueAccessor());
+        //if (initialValue) {
+        //    options.date = initialValue;
+        //}
 
-        //when a user changes the date, update the view model
-        ko.utils.registerEventHandler(element, "dp.change", function (event) {
+        $(element).datetimepicker(options);
+
+        ko.utils.registerEventHandler(element, "change.datetimepicker", function (event) {
             var value = valueAccessor();
             if (ko.isObservable(value)) {
-                value(event.date);
+                value(event.date || event.target.value || null);
             }
         });
 
-        var defaultVal = $(element).val();
-        var value = valueAccessor();
-        value(moment(defaultVal, options.format));
+        ko.utils.domNodeDisposal.addDisposeCallback(element, function () {
+            $(element).datetimepicker("destroy");
+        });
     },
     update: function (element, valueAccessor) {
-        var widget = $(element).data("datepicker");
-        //when the view model is updated, update the widget
-        if (widget) {
-            widget.date = ko.utils.unwrapObservable(valueAccessor());
-            if (widget.date) {
-                widget.setValue();
-            }
+        var val = ko.utils.unwrapObservable(valueAccessor());
+        if ($(element).datetimepicker) {
+            $(element).datetimepicker("date", val);
         }
     }
 };
