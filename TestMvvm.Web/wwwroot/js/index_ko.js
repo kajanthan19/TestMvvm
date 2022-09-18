@@ -225,7 +225,12 @@ ko.bindingHandlers.datepicker = {
 
         var options = {
             format: 'DD/MM/YYYY HH:mm',
-            date: ko.utils.unwrapObservable(valueAccessor())
+            date: ko.utils.unwrapObservable(valueAccessor()),
+            maxDate: new Date(),
+            maxTime: new Date(),
+            disabledTimeIntervals: [
+                [moment(), moment().hour(24).minutes(0).seconds(0)]
+            ],
         };
 
         if (allBindingsAccessor() !== undefined) {
@@ -233,12 +238,6 @@ ko.bindingHandlers.datepicker = {
                 options.format = allBindingsAccessor().dateTimePickerOptions.format !== undefined ? allBindingsAccessor().dateTimePickerOptions.format : options.format;
             }
         }
-
-        //var options = allBindingsAccessor().dateTimePickerOptions || {};
-        //var initialValue = ko.utils.unwrapObservable(valueAccessor());
-        //if (initialValue) {
-        //    options.date = initialValue;
-        //}
 
         $(element).datetimepicker(options);
 
